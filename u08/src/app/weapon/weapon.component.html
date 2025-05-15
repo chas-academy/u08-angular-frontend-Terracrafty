@@ -1,0 +1,27 @@
+<div>
+  <h1>{{weapon().name}}</h1>
+  <p>{{weapon().type}}</p>
+  <p>🔪 {{weapon().raw}}</p>
+  <div class="hidden" *ngIf="weapon().element">
+    <div class="hidden" [ngSwitch]="weapon().element_type">
+      <p *ngSwitchCase="'fire'">🔥 {{weapon().element}}</p>
+      <p *ngSwitchCase="'water'">🌊 {{weapon().element}}</p>
+      <p *ngSwitchCase="'lightning'">⚡ {{weapon().element}}</p>
+      <p *ngSwitchCase="'ice'">🧊 {{weapon().element}}</p>
+      <p *ngSwitchCase="'dragon'">🐾 {{weapon().element}}</p>
+      <p *ngSwitchCase="'poison'">🫧 {{weapon().element}}</p>
+      <p *ngSwitchCase="'paralysis'">〽️ {{weapon().element}}</p>
+      <p *ngSwitchCase="'sleep'">💤 {{weapon().element}}</p>
+      <p *ngSwitchCase="'blast'">💥 {{weapon().element}}</p>
+    </div>
+  </div>
+  <p>⚔️ {{weapon().affinity}}</p>
+  <p>🛡️ {{weapon().defense}}</p>
+  <p [style.color]="weapon().max_sharpness">-|===></p>
+  <p>{{slots()}}</p>
+  <ul>
+    <li *ngFor="let skill of weapon().skills">
+      <app-skill [skill]="skill"></app-skill>
+    </li>
+  </ul>
+</div>

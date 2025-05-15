@@ -1,0 +1,15 @@
+<div>
+  <h1>{{armor().name}}</h1>
+  <p>🛡️ {{armor().defense}}</p>
+  <p>🔥 {{armor().fire_resist}}</p>
+  <p>🌊 {{armor().water_resist}}</p>
+  <p>⚡ {{armor().lightning_resist}}</p>
+  <p>🧊 {{armor().ice_resist}}</p>
+  <p>🐾 {{armor().dragon_resist}}</p>
+  <p>{{slots()}}</p>
+  <ul>
+    <li *ngFor="let skill of armor().skills">
+      <app-skill [skill]="skill"></app-skill>
+    </li>
+  </ul>
+</div>

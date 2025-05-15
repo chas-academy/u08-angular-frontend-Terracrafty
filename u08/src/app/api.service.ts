@@ -1,58 +1,5 @@
 import { Injectable } from '@angular/core';
-
-type Skill = {
-  _id: string;
-  name: string;
-  level: number;
-  max_level: number;
-}
-
-type Weapon = {
-  _id: string;
-  name: string;
-  type: string;
-  raw: number;
-  element: number;
-  element_type: string;
-  affinity: number;
-  defense: number;
-  slots_1: number;
-  slots_2: number;
-  slots_3: number;
-  skills: Array<Skill>;
-  max_sharpness: string;
-}
-
-enum ArmorType {
-  head,
-  chest,
-  arms,
-  waist,
-  legs
-}
-
-type Armor = {
-  _id: string;
-  name: string;
-  type: ArmorType;
-  defense: number;
-  fire_resist: number;
-  water_resist: number;
-  lightning_resist: number;
-  ice_resist: number;
-  dragon_resist: number;
-  slots_1: number;
-  slots_2: number;
-  slots_3: number;
-  skills: Array<Skill>;
-}
-
-type Decoration = {
-  _id: string;
-  name: string;
-  size: number;
-  skills: Array<Skill>;
-}
+import { Skill, Armor, Decoration, Weapon } from './types';
 
 @Injectable({
   providedIn: 'root'
@@ -64,7 +11,7 @@ export class ApiService {
   skills: Promise<Array<Skill>>;
   decos: Promise<Array<Decoration>>;
 
-  constructor() { 
+  constructor() {
     this.weapons = this.getWeapons();
     this.armors = this.getArmors();
     this.skills = this.getSkills();
@@ -156,3 +103,4 @@ export class ApiService {
   }
 }
 
+export type {Skill, Decoration, Armor, Weapon}
