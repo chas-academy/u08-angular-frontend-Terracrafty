@@ -52,3 +52,7 @@ export type Decoration = {
   skills: Array<Skill>;
 }
 
+export enum GearTypeEnum {
+  weapon,
+  armor
+}
