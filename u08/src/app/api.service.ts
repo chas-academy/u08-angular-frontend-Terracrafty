@@ -5,7 +5,7 @@ import { Skill, Armor, Decoration, Weapon } from './types';
   providedIn: 'root'
 })
 export class ApiService {
-  url = "https://u05-restful-api-terra.onrender.com/api";
+  url = "http://localhost:3000/api";
   weapons: Promise<Array<Weapon>>;
   armors: Promise<Array<Armor>>;
   skills: Promise<Array<Skill>>;
@@ -89,7 +89,7 @@ export class ApiService {
     return out;
   }
   async getDecos(): Promise<Array<Decoration>> {
-    const get = (await (await fetch(`${this.url}/skills`)).json() as Array<any>);
+    const get = (await (await fetch(`${this.url}/decorations`)).json() as Array<any>);
     const out: Array<Decoration> = [];
     get.forEach(item => {
       out.push({

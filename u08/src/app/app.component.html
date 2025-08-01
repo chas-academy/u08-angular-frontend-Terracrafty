@@ -1,0 +1,37 @@
+<div (click)="activeGearList.set(1)">
+  <h1>Weapon</h1>
+  @if (weapon(); as weapon) {
+    <app-weapon [weapon]="weapon"></app-weapon>
+  }
+</div>
+<div (click)="activeGearList.set(2)">
+  <h1>Head</h1>
+  @if (head(); as head) {
+    <app-armor [armor]="head"></app-armor>
+  }
+</div>
+<div (click)="activeGearList.set(2)">
+  <h1>Chest</h1>
+  @if (chest(); as chest) {
+    <app-armor [armor]="chest"></app-armor>
+  }
+</div>
+<div (click)="activeGearList.set(2)">
+  <h1>Arms</h1>
+  @if (arms(); as arms) {
+    <app-armor [armor]="arms"></app-armor>
+  }
+</div>
+<div (click)="activeGearList.set(2)">
+  <h1>Waist</h1>
+  @if (waist(); as waist) {
+    <app-armor [armor]="waist"></app-armor>
+  }
+</div>
+<div (click)="activeGearList.set(2)">
+  <h1>Legs</h1>
+  @if (legs(); as legs) {
+    <app-armor [armor]="legs"></app-armor>
+  }
+</div>
+<div *ngComponentOutlet="renderGearList()"></div>
