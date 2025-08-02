@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Skill, Armor, Decoration, Weapon, ArmorType } from './types';
+import { load } from 'ts-dotenv';
 
+const env = load({
+  API_URL: String,
+})
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  url = "http://localhost:3000/api";
+  url = env.API_URL;
   weapons: Promise<Array<Weapon>>;
   armors: Promise<Array<Armor>>;
   skills: Promise<Array<Skill>>;
