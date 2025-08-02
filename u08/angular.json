@@ -29,6 +29,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "_redirects",
+                "input": "src",
+                "output": "/"
               }
             ],
             "styles": [
@@ -97,6 +102,14 @@
             ],
             "scripts": [],
             "builderMode": "browser"
+          }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/u08",
+            "netlifyToken": "nfp_v5xfHSqMPb1vV9arbZTCKguvMsggcG8Ma1c6",
+            "siteId": "11364865-2855-4763-aaf9-fd2d770f49ae"
           }
         }
       }
