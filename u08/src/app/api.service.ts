@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Skill, Armor, Decoration, Weapon } from './types';
+import { Skill, Armor, Decoration, Weapon, ArmorType } from './types';
 
 @Injectable({
   providedIn: 'root'
@@ -60,7 +60,7 @@ export class ApiService {
       out.push({
         _id: item._id,
         name: item.name,
-        type: item.type,
+        type: this.armorTypeStringConverter(item.type),
         defense: item.defense,
         fire_resist: item.fire_resist,
         water_resist: item.water_resist,
@@ -75,6 +75,23 @@ export class ApiService {
     });
     return out;
   }
+
+  armorTypeStringConverter(string:string):ArmorType {
+    switch (string) {
+      case "head":
+        return ArmorType.head;
+      case "chest":
+        return ArmorType.chest;
+      case "arms":
+        return ArmorType.arms;
+      case "waist":
+        return ArmorType.waist;
+      case "legs":
+        return ArmorType.legs;
+    }
+    return ArmorType.head;
+  }
+
   async getSkills(): Promise<Array<Skill>> {
     const get = (await (await fetch(`${this.url}/skills`)).json() as Array<any>);
     const out: Array<Skill> = [];

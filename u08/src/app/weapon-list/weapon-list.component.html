@@ -1,3 +1,7 @@
-<div *ngFor="let weapon of weapons | async">
-    <app-weapon [weapon]="weapon"></app-weapon>
-</div>
+@if (state.activeGearList() == 'weapon'){
+  <div *ngFor="let weapon of weapons | async">
+    <div (click)="state.weapon.set(weapon); state.activeGearList.set('')">
+      <app-weapon [weapon]="weapon"></app-weapon>
+    </div>
+  </div>
+}

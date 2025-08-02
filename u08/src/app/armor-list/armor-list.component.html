@@ -1,3 +1,37 @@
-<div *ngFor="let armor of armors | async">
-    <app-armor [armor]="armor"></app-armor>
-</div>
+@switch (state.activeGearList()) {
+  @case ('head') {
+    @for (armor of headArmors() | async; track armor._id) {
+      <div (click)="state.head.set(armor); state.activeGearList.set('')">
+        <app-armor [armor]="armor"></app-armor>
+      </div>
+    }
+  }
+  @case ('chest') {
+    @for (armor of chestArmors() | async; track armor._id) {
+      <div (click)="state.chest.set(armor); state.activeGearList.set('')">
+        <app-armor [armor]="armor"></app-armor>
+      </div>
+    }
+  }
+  @case ('arms') {
+    @for (armor of armArmors() | async; track armor._id) {
+      <div (click)="state.arms.set(armor); state.activeGearList.set('')">
+        <app-armor [armor]="armor"></app-armor>
+      </div>
+    }
+  }
+  @case ('waist') {
+    @for (armor of waistArmors() | async; track armor._id) {
+      <div (click)="state.waist.set(armor); state.activeGearList.set('')">
+        <app-armor [armor]="armor"></app-armor>
+      </div>
+    }
+  }
+  @case ('legs') {
+    @for (armor of legArmors() | async; track armor._id) {
+      <div (click)="state.legs.set(armor); state.activeGearList.set('')">
+        <app-armor [armor]="armor"></app-armor>
+      </div>
+    }
+  }
+}

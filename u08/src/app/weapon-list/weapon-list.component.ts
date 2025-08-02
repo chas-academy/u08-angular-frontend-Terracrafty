@@ -1,7 +1,8 @@
-import { Component, inject, computed } from '@angular/core';
-import { ApiService } from '../api.service';
+import { Component, inject, computed, output } from '@angular/core';
+import { ApiService, Weapon } from '../api.service';
 import { AsyncPipe, NgFor } from '@angular/common';
 import { WeaponComponent } from "../weapon/weapon.component";
+import { StateService } from '../state.service';
 
 @Component({
   selector: 'app-weapon-list',
@@ -11,5 +12,6 @@ import { WeaponComponent } from "../weapon/weapon.component";
 })
 export class WeaponListComponent {
   api = inject(ApiService);
+  state = inject(StateService);
   weapons = this.api.getWeapons();
 }
