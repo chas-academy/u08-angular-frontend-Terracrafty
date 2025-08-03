@@ -1,4 +1,4 @@
-<div>
+<div class="root">
   <h1>{{weapon().name}}</h1>
   <p>{{weapon().type}}</p>
   <p>🔪 {{weapon().raw}}</p>
@@ -19,9 +19,7 @@
   <p>🛡️ {{weapon().defense}}</p>
   <p [style.color]="weapon().max_sharpness">-|===></p>
   <p>{{slots()}}</p>
-  <ul>
-    <li *ngFor="let skill of weapon().skills">
-      <app-skill [skill]="skill"></app-skill>
-    </li>
-  </ul>
+  <div *ngFor="let skill of weapon().skills">
+    <app-skill [skill]="skill"></app-skill>
+  </div>
 </div>
